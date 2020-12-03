@@ -13,7 +13,9 @@ while num < amopasswd:
     wholelengh = len(passwd)
     nbr = line1.split()[0]
     num1 = nbr.split('-')[0]
+    num1 = int(num1) - 1
     num2 = nbr.split('-')[1]
+    num2 = int(num2) -1
     if int(num1) > int(wholelengh) or int(num2) > int(wholelengh):
         num = num + 1
     else:
@@ -21,9 +23,12 @@ while num < amopasswd:
         cha2 = passwd[int(num2)]
         if int(num1) > int(wholelengh) or int(num2) > int(wholelengh):
             num = num + 1
-        elif finalchar == cha1 and finalchar == cha2:
-            amountyes = amountyes + 1
-            num = num + 1
+        elif finalchar == cha1 or finalchar == cha2:
+            if finalchar == cha1 and finalchar == cha2:
+                num = num + 1
+            else:
+                num = num +1
+                amountyes = amountyes +1
         else:
             num = num + 1
 print(amountyes)
